@@ -22,13 +22,17 @@ th train_lstm.lua --modelPath /path/to/model/
 ```
 
 
-# Dataset
-## KTH
-To download the KTH action recognition dataset run:
+##  Training on KTH
+First download the KTH action recognition dataset by running:
 ```
-bash datasets/download_kth.lua /my/data/path/
+sh datasets/download_kth.lua /my/kth/data/path/
 ```
-and to split the .avi files into .png's for the data loader run
+where /my/kth/data/path/ is the directory the data will be downloaded into. Next, convert the downloaded .avi files into .png's for the data loader. To do this you'll want [ffmpeg](https://ffmpeg.org/) installed. Then run:
 ```
-th convert_kth --dataRoot /my/data/path/
+th convert_kth --dataRoot /my/kth/data/path/ --imageSize 128
 ```
+The ```--imageSize``` flag specifiec the image resolution. results in the paper are own 128x128, but you can also train a model on 64x64 and it will train much faster.
+Now you're ready to train the DrNet model by running:
+```
+th train_drnet_skip --dataRoot /my/kth/data/path/ --imageSize 128
+``` 
