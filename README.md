@@ -12,11 +12,10 @@ To train the base model run:
 ```
 th train_drnet.lua 
 ```
-or 
+or the model with skip connections between content encoder and decoder:
 ```
 th train_drnet_skip.lua 
 ```
-for the model with skip connections between content encoder and decoder.
 
 
 To train an LSTM on the pose vectors run:

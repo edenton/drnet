@@ -319,7 +319,7 @@ function train(x_cpu)
 end
 
 if opt.nThreads > 0 then
-  dofile(('data/%s_threaded.lua'):format(opt.dataset))
+  dofile('data/threaded.lua')
 else
   dofile(('data/%s.lua'):format(opt.dataset))
 end
