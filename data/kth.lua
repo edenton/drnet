@@ -16,7 +16,7 @@ function KTHDataset:__init(opt, data_type)
   self.data_type = data_type
   self.opt = opt or {}
   self.path = self.opt.dataRoot 
-  self.data = torch.load(('%s/%s_meta.t7'):format(self.path, data_type))
+  self.data = torch.load(('%s/processed/meta/%s_meta.t7'):format(self.path, data_type))
   self.classes = {}
   for c, _ in pairs(self.data) do
     table.insert(self.classes, c)
@@ -57,7 +57,7 @@ function KTHDataset:getSequence(x, delta)
   local vid = self.data[c][math.random(#self.data[c])]
   local seq = math.random(#vid.indices)
   local seq_length = vid.indices[seq][2] - vid.indices[seq][1] + 1
-  local basename = ('%s/%s/%s/'):format(self.path, c, vid.vid) 
+  local basename = ('%s/processed/%s/%s/'):format(self.path, c, vid.vid) 
 
   local T = x:size(1)
   while T*delta > seq_length do

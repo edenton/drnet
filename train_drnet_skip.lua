@@ -316,13 +316,7 @@ function train(x_cpu)
   return pred_mse, latent_mse
 end
 
-if opt.nThreads > 0 then
-  dofile('data/threaded.lua')
-else
-  dofile(('data/%s.lua'):format(opt.dataset))
-end
-valLoader:plot()
-cutorch.synchronize() 
+require 'data.data'
 
 plot_x_train = trainLoader:getBatch(opt.batchSize, opt.maxStep)
 plot_x_val = valLoader:getBatch(opt.batchSize, opt.maxStep)

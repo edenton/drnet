@@ -6,8 +6,6 @@ Torch implementation for Unsupervised Learning of Disentangled Representations f
 
 
 # Training 
-Currently only MNIST data loader implemented, more to come.
-
 To train the base model run:
 ```
 th train_drnet.lua 
@@ -24,4 +22,13 @@ th train_lstm.lua --modelPath /path/to/model/
 ```
 
 
-
+# Dataset
+## KTH
+To download the KTH action recognition dataset run:
+```
+bash datasets/download_kth.lua /my/data/path/
+```
+and to split the .avi files into .png's for the data loader run
+```
+th convert_kth --dataRoot /my/data/path/
+```
