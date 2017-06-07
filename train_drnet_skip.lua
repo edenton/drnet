@@ -385,7 +385,7 @@ while true do
   if pred_mse/iter < best then
     best = pred_mse / iter
     print(('Saving best model so far (pred mse = %.4f) %s/model_best.t7'):format(pred_mse/iter, opt.save))
-    --torch.save(('%s/model_best.t7'):format(opt.save), {netEC=sanitize(netEC), netEP=sanitize(netEP), opt=opt, epoch=epoch, best=best, total_iter=total_iter})
+    torch.save(('%s/model_best.t7'):format(opt.save), {netEC=sanitize(netEC), netEP=sanitize(netEP), opt=opt, epoch=epoch, best=best, total_iter=total_iter})
   end
  
   -- plot 
@@ -399,7 +399,7 @@ while true do
 
   if epoch % 1 == 0 then
     print(('Saving model %s/model.t7'):format(opt.save))
-    --torch.save(('%s/model.t7'):format(opt.save), {netC=sanitize(netC), netEC=sanitize(netEC), netEP=sanitize(netEP), opt=opt, epoch=epoch, best=best, total_iter=total_iter})
+    torch.save(('%s/model.t7'):format(opt.save), {netC=sanitize(netC), netEC=sanitize(netEC), netEP=sanitize(netEP), opt=opt, epoch=epoch, best=best, total_iter=total_iter})
   end
   epoch = epoch+1
   if epoch > opt.nEpochs then break end
