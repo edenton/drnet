@@ -98,7 +98,7 @@ function makeLSTM()
     local in_pose = {}
     for i = 1, opt.nPast+opt.nFuture do
       local s = self.s[i - 1]
-      if i <= opt.nPast+opt.nFuture then
+      if i <= opt.nPast then
         in_pose[i] = pose[i]:clone()
       else
         in_pose[i] = gen_pose[i-1]:clone()
