@@ -18,7 +18,7 @@ for _, class in pairs(classes) do
   print(' ---- ')
   print(class)
 
-  for vid in paths.iterfiles(data_root .. 'raw/' .. class) do
+  for vid in paths.iterfiles(data_root .. '/raw/' .. class) do
     print(vid)
     local fname = vid:sub(1,-12)
     os.execute(('mkdir -p %s/processed/%s/%s'):format(data_root, class, fname))
