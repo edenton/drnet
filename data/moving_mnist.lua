@@ -147,7 +147,7 @@ function MovingMNISTDataset:plot()
   self:plotSeq(savedir .. '/seq.png')
 end
 
-trainLoader = MovingMNISTLoader(opt, 'train')
+trainLoader = MovingMNISTLoader(opt_t or opt, 'train')
 trainLoader:normalize()
-valLoader = MovingMNISTLoader(opt, 'val')
+valLoader = MovingMNISTLoader(opt_t or opt, 'val')
 valLoader:normalize()
